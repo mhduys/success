@@ -36,10 +36,14 @@ app.use(function(req,res,next){
   next();
 }) 
 
-db.connect((err)=>{
-  if(err) console.log("connections err"); 
-  else console.log("connected to database"); 
-})
+try {
+  db.connect((err)=>{
+    if(err) console.log("connections err"); 
+    else console.log("connected to database"); 
+  })
+} catch (error) {
+  console.log(error)
+}
 app.use('/', userRouter);
 app.use('/admin', adminRouter);
 
