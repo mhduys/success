@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- <title>Document</title> --}}
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+
+        }
+
+        input[type='number'] {
+            width: 100%;
+        }
+        
+    </style>
+</head>
+
+<body>
+    {{>user-header}}
+    <div class="breadcrumb-section breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>We sale premium books</p>
+                        <h1>User Profile</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <section>
+            <div class="container">
+                
+                <div class="row p-5 ">
+                    <div class="col-sm-12 col-lg-3 "
+                        style="border-radius: 10px; background-color: #ffffff; box-shadow: 5px 4px 20px 5px #374b56;">
+                        {{!-- =========================================== --}}
+                         {{!-- <div class="form-group container">
+                            <label for="file"> Upload Image File:</label>
+                            <input class="form-control" type="file" name="" id="file-input" required accept="image/*">
+                         </div>
+                         <div class="box-2">
+                            <div class="result">
+
+                            </div>
+                         </div>
+                         <div class="box-2 img-result hide">
+                            <img src="" alt="" class="cropped">
+                         </div>
+
+                         <div class="box">
+                            <div class="options hide">
+                                <label for="width">Width</label>
+                                <input type="number" class="img-w" value="300" min="100" max="1200">
+                            </div>
+                            <button class="btn save hide">Save</button>
+                            <a href="" class="btn download hide">Download</a>
+                         </div> --}}
+                         {{!-- ========================================= --}}
+                        <div class="mt-3 mb-4 d-flex justify-content-center">
+                            <img src="/user/assets/img/signup and login/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
+                                class="rounded-circle img-fluid" style="width: 200px;" />
+                        </div>
+                        {{!-- <a href="/profilePic"><button>Upload Profiel</button></a> --}}
+                        
+                                
+                        <div class="mt-3 mb-4 d-flex flex-column justify-content-center align-items-center text-dark">
+                            <div>
+
+                                {{userData.Name}}
+                            </div>
+                            <div>
+
+                                {{userData.Email}}
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center p-">
+                            <div class="p-3 d-flex justify-content-center align-items-center" style="width: 100%;">
+                                <button style="border-radius: 20px;width: 100% " type="button"
+                                    class="btn btn-warning"><i class="fa fa-user" aria-hidden="true"></i>
+                                    Profile</button>
+                            </div>
+                            <div class="p-3 d-flex justify-content-center align-items-center" style="width: 100%;">
+                                <a href="/address" style="text-decoration: none; color: inherit;width: 100%;"><button
+                                        style="border-radius: 20px;width: 100%" type="button" class="btn btn-warning"><i
+                                            class="fa fa-address-card" aria-hidden="true"></i> Address</button></a>
+                            </div>
+                            <div class="p-3 d-flex justify-content-center align-items-center" style="width: 100%;">
+                                <a href="/orders" style="text-decoration: none; color: inherit;width: 100%;"><button
+                                        style="border-radius: 20px;width: 100% " type="button"
+                                        class="btn btn-warning"><i class="fa fa-map-pin" aria-hidden="true"></i>
+                                        Oders</button></a>
+                            </div>
+                            <div class="p-3 d-flex justify-content-center align-items-center" style="width: 100%;">
+                                <a href="/logout" style="text-decoration: none; color: inherit;width: 100%;"><button
+                                        style="border-radius: 20px;width: 100% " type="button"
+                                        class="btn btn-warning"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                        Logout</button></a>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                    <div class=" col-sm-12 col-lg-8 m-5"
+                        style="border-radius: 10px; box-shadow: 5px 4px 20px 5px #374b56;">
+                        <div class="row">
+                            <div
+                                class="col-sm-12 col-lg-6 mt-3 d-flex flex-column justify-content-cneter align-items-center">
+                                <img style="width: 200px;" src="/user/assets/img/logo.png" alt="">
+                                <p class=" mt-3">Success is an Indian brand of student stationery products.
+                                    ITC Limited (formerly Indian Tobacco Company) launched its Success brand in 2003
+                                    with the notebooks category. Subsequently, Success added sketch books, Diarys, and
+                                    Office Notepad to its portfolio. It uses eco-friendly and elemental chlorine-free
+                                    paper.</p>
+
+
+
+                            </div>
+                            <div class=" col-sm-12 col-lg-6 pt-3">
+                                <div class="accordion md-accordion" id="accordionEx1" role="tablist"
+                                    aria-multiselectable="true">
+
+                                    <!-- Accordion card -->
+                                    <div class="card">
+
+                                        <!-- Card header -->
+                                        <div class="card-header bg-dark" role="tab" id="headingTwo1">
+                                            <a class="collapsed " data-toggle="collapse" data-parent="#accordionEx1"
+                                                href="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
+                                                <h5 class="mb-0 text-info ">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>Add Address
+                                                </h5>
+                                            </a>
+                                        </div>
+
+                                        <!-- Card body -->
+                                        <div id="collapseTwo1" class="collapse border" role="tabpanel"
+                                            aria-labelledby="headingTwo1" data-parent="#accordionEx1">
+                                            <div class="card-body">
+                                                <form action="/add-address" method="post">
+                                                    <div class="row mt-5 d-flex justify-content-center text-info rounded "
+                                                        style="border-color: #374b56;" id="address">
+
+
+                                                        <div class="col-md-12 "><label class="labels">Name</label><input
+                                                                style="border-color: #374b56;" type="text" name="Name"
+                                                                class="form-control " value="">
+                                                        </div>
+                                                        <div class="col-md-6 "><label class="labels">Place</label><input
+                                                                style="border-color: #374b56;" type="text" name="Place"
+                                                                class="form-control " value="">
+                                                        </div>
+
+                                                        {{!-- <div class="col-md-6"><label
+                                                                class="labels">Country</label><input type="text"
+                                                                name="Country" class="form-control"
+                                                                value="{{userData.permenentAddress.[0].Country}}"
+                                                                placeholder="contry">
+                                                        </div> --}}
+                                                        <div class="col-md-6"><label class="labels">Mobile</label><input
+                                                                style="border-color: #374b56;" type="number"
+                                                                name="Mobile" class="form-control" value=""></div>
+                                                        <div class="col-md-6"><label
+                                                                class="labels">House/Street</label><input type="text"
+                                                                style="border-color: #374b56;" name="House"
+                                                                class="form-control" value=""></div>
+                                                        <div class="col-md-6"><label
+                                                                class="labels">Landmark</label><input type="text"
+                                                                style="border-color: #374b56;" name="Landmark"
+                                                                class="form-control" value=""></div>
+                                                        <div class="col-md-6"><label class="labels">Town</label><input
+                                                                style="border-color: #374b56;" type="text" name="Town"
+                                                                class="form-control" value="">
+                                                        </div>
+                                                        <div class="col-md-6"><label class="labels">Pin</label><input
+                                                                style="border-color: #374b56;" type="number" name="Pin"
+                                                                class="form-control" value="">
+                                                        </div>
+                                                        <button class="btn btn-primary" type="submit">save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                {{#each userData.Address}}
+
+                                <div
+                                    style="background-color: rgb(71, 73, 75); border-radius: 7px;margin-top: 5px;padding: 5px">
+                                    <div>
+                                        <a href="/changeCurruntAddress/{{this.AddressId}}">
+
+                                    <div class="d-flex justify-content-between align-items-center ">
+                                        <div>
+                                            <p class="text-white" style="margin: 0px;"><strong>{{this.Name}}/
+                                                    <span>{{this.Mobile}}</span></strong>{{#if this.value}} <span
+                                                    style="background-color: rgb(167, 145, 7);color: rgb(255, 255, 255); padding: 3px;border-radius: 5px;">Curent
+                                                    Adress</span>{{/if}} </p>
+                                            <p><i><span>{{this.House}}/ </span><span>{{this.Place}}/
+                                                    </span><span>{{this.Town}}/ </span><span>Pin:{{this.Pin}}</span></i>
+                                            </p>
+                                        </div>
+                                        <div>
+
+                                            <a href="/editAddress/{{this.AddressId}}"> <button
+                                                    class="btn btn-primary"><i class="fa fa-list-alt"
+                                                        aria-hidden="true"></i></button></a>
+                                            <a href="/deleteAddress/{{this.AddressId}} "><button
+                                                    class="btn btn-danger"><i class="fa fa-trash"
+                                                        aria-hidden="true"></i></button></a>
+                                        </div>
+                                    </div>
+                                    </a>
+                                    </div>
+
+
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        {{!-- <div class="container pt-3">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6" style="border: 2px;background-color:#374b56; border-radius: 8px;">
+
+                    <div class="p-3 py-5 font-weight-bold">
+
+                        <a href=""><button class="btn btn-primary profile-button" type="submit"><i class="fa fa-user"
+                                    aria-hidden="true"></i> Profile</button></a>
+                        <a href="/address"><button class="btn btn-primary profile-button" type="submit"><i
+                                    class="fa fa-address-card" aria-hidden="true"></i> Address</button></a>
+                        <a href=""><button class="btn btn-primary profile-button" type="submit"><i class="fa fa-map-pin"
+                                    aria-hidden="true"></i> Oders</button></a>
+
+                        <div class="row mt-2 d-flex justify-content-center">
+                            <div class="mt-3 mb-4">
+                                <img src="/user/assets/img/signup and login/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
+                                    class="rounded-circle img-fluid" style="width: 100px;" />
+                            </div>
+
+
+
+                            <div class="col-md-12 "><label class="labels">Name</label><input type="text" name="Name"
+                                    class="form-control " placeholder="full name" value="{{userData.Name}}"></div>
+
+
+                            <div class="col-md-12"><label class="labels">Email</label><input type="text" name="Email"
+                                    class="form-control" placeholder="enter email id" value="{{userData.Email}}"></div>
+                        </div>
+
+                        <div class="mt-5 text-center">
+
+                            <a href="/logout">
+                                <div class="mt-2 text-center"><button class="btn btn-primary profile-button"
+                                        type="button">Logout</button></div>
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div> --}}
+    </section>
+    <section class="pt-3">
+        <div class="footer-area ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-box about-widget">
+                            <h2 class="widget-title">About us</h2>
+                            <p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem
+                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-box get-in-touch">
+                            <h2 class="widget-title">Get in Touch</h2>
+                            <ul>
+                                <li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+                                <li>support@fruitkha.com</li>
+                                <li>+00 111 222 3333</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-box pages">
+                            <h2 class="widget-title">Pages</h2>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="services.html">Shop</a></li>
+                                <li><a href="news.html">News</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-box subscribe">
+                            <h2 class="widget-title">Subscribe</h2>
+                            <p>Subscribe to our mailing list to get the latest updates.</p>
+                            <form action="index.html">
+                                <input type="email" placeholder="Email">
+                                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+{{!--  --}}
+
+</html>

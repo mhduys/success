@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="/admin/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    
+    
+
+    
+</head>
+
+<body>
+    {{>admin-header}}
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            
+            <!-- Navbar End -->
+
+
+            <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row  bg-secondary rounded align-items-center justify-content-center mx-0">
+                    
+                        
+                        <div class="col-sm-12 col-md-6">
+                        <div class="bg-secondary rounded p-4 ">
+                            <h6 class="mb-4">Edit Product Details</h6>
+                            <form action="/admin/editProduct/{{product._id}}" method="post" enctype="multipart/form-data">
+                            <div class="form-floating mb-3">
+                                <input type="text" name="Name" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com" value="{{product.Name}}">
+                                <label for="floatingInput">Product Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" name="Price" class="form-control" id="floatingPassword"
+                                    placeholder="Price" value="{{product.Price}}">
+                                <label for="floatingPassword">Price</label>
+                            </div>
+                            {{!-- <div class="form-floating mb-3">
+                                <input type="text" name="Price" class="form-control" id="floatingPassword"
+                                    placeholder="Category" value="{{product.Category}}" style="background-color: black;" disabled>
+                                <label for="floatingPassword">Category</label>
+                            </div> --}}
+                            <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="Discount" class="form-control" id="floatingInput"
+                                                placeholder="name@example.com" value="{{product.Discount}}">
+                                            <label for="floatingInput">Discount Price</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="Star" class="form-control" id="floatingInput"
+                                                placeholder="name@example.com" value="{{product.Star}}">
+                                            <label for="floatingInput">Star Count</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="Id" class="form-control" id="floatingInput"
+                                                placeholder="name@example.com" value="{{Product.Id}}">
+                                            <label for="floatingInput">Product ID</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input type="text" name="Offer" class="form-control" id="floatingInput"
+                                                placeholder="name@example.com" value="{{product.Offer}}">
+                                            <label for="floatingInput">Offer</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example" name="Category" >
+                                 
+                                    <option value="">{{product.Category}}</option>
+                                 
+                                    <option value="{{product.Category}}">Notebook</option>
+                                    <option value="{{product.Category}}">Scetchbook</option>
+                                    <option value="{{product.Category}}">Office</option>
+                                    <option value="{{product.Category}}">Diary</option> 
+                                </select>
+                                <label for="floatingSelect">Works with selects</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" name="Description" placeholder="Leave a comment here"
+                                    id="floatingTextarea" style="height: 150px;">{{product.Description}}</textarea>
+                                <label for="floatingTextarea">Description</label>
+                            </div>
+                            {{!-- <div class="form-floating mb-3">
+                                <input type="file" name="Image" class="imageBar form-control bg-dark" id="floatingPassword" multiple>
+                            </div> --}}
+                            {{!-- <div>
+
+                                <img src="/public/admin/product-Images/{{product._id}}.jpg" alt="" style="width: 100px;height: auto;">
+                                <img src="/public/admin/product-Images/{{product._id}}.jpg" alt="" style="width: 100px;height: auto;">
+                                <img src="/public/admin/product-Images/{{product._id}}.jpg" alt="" style="width: 100px;height: auto;">
+                            </div> --}}
+                            {{!-- ===================================== --}}
+                            <div>
+                            <label for="Imageid" id="image-div"><i class="fa fa-plus" aria-hidden="true"
+                                    style="font-size:45px; border:1px solid black;padding:25px;cursor:pointer"></i></label>
+                            <input type="file" id="Imageid" name="Image" class="form-control-file "
+                                style="display:none;visibility:none;" onchange="getImage(event)"
+                                accept="image/jpg,image/jpeg" multiple>
+
+                            <img id="image-show-0" src="/admin/product-Images/{{product.Image.[0]}}" alt="" style="width:100px ;height:auto;">
+                            <img id="image-show-1" src="/admin/product-Images/{{product.Image.[1]}}" alt="" style="width:100px ;height:auto;">
+                            <img id="image-show-2" src="/admin/product-Images/{{product.Image.[2]}}" alt="" style="width:100px ;height:auto;">
+
+                        </div>
+                        {{!-- ==================================================== --}}
+                                
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Save Changes</button>
+                       
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="bg-secondary rounded  p-4  border-dark border-left ">
+                            {{!-- <iframe class="position-relative rounded w-100 h-100"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
+                            frameborder="0" allowfullscreen="" aria-hidden="false"
+                            tabindex="0" style="filter: grayscale(100%) invert(92%) contrast(83%); border: 0;"></iframe> --}}
+                            <h6 class="mb-4">Check Features</h6>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"  id="ElasticClosure" name="Elastic_Closure" value="elasticAvileble">
+                                <label class="form-check-label" for="ElasticClosure" >
+                                    Elastic Closure
+                                </label>
+                                
+                            </div>
+                            
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"  id="RoundedCorner" name="Rounded_Corner" value="cornerAvileble">
+                                <label class="form-check-label" for="RoundedCorner" >
+                                    Rounded Corner
+                                </label>
+                                
+                            </div>
+                            {{!-- <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault" >
+                                Glue Bound
+                                </label>
+                                
+                            </div> --}}
+                           
+                            
+                            {{!-- <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" >
+                                <label class="form-check-label" for="inlineCheckbox1">1</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">2</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"
+                                    disabled>
+                                <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+                            </div> --}}
+                            <hr>
+
+
+                            
+                            <div>
+                                <span>Bind</span>
+                            </div>
+                        
+                            <div class="form-check ">
+                                <input class="form-check-input" type="radio" name="Bind"
+                                    id="Glue" value="Glue">
+                                <label class="form-check-label" for="Glue"> Glue</label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="radio" name="Bind"
+                                    id="Ring" value="Ring">
+                                <label class="form-check-label" for="Ring"> Ring </label>
+                            </div>
+
+
+
+                            <span>size</span>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="radio" name="Size"
+                                    id="A4" value="A4">
+                                <label class="form-check-label" for="A4">
+                                    A4
+                                </label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="radio" name="Size"
+                                    id="A5" value="A5">
+                                <label class="form-check-label" for="A5">
+                                    A5
+                                </label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="radio" name="Size"
+                                    id="A6"  value="A6">
+                                <label class="form-check-label" for="A61">
+                                    A6
+                                </label>
+                            </div>
+                            <div>
+                                <span>Gsm (grammes per square meter)</span>
+                            </div>
+                            
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Gsm" id="Gsm80"
+                                    value="80Gsm">
+                                <label class="form-check-label" for="Gsm80">80</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Gsm" id="Gsm100"
+                                    value="100Gsm">
+                                <label class="form-check-label" for="Gsm100">100</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="Gsm" id="Gsm120"
+                                    value="120Gsm" >
+                                <label class="form-check-label" for="Gsm120">120</label>
+                            </div>
+                            <div>
+                                <span>Sheet</span>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="radio" name="Sheet"
+                                    id="sheet80" value="80sheets">
+                                <label class="form-check-label" for="sheet80">
+                                    80
+                                </label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="radio" name="Sheet"
+                                    id="sheet120" value="120sheets">
+                                <label class="form-check-label" for="sheet120">
+                                    120
+                                </label>
+                            </div>
+                            <div class="form-check ">
+                                <input class="form-check-input" type="radio" name="Sheet"
+                                    id="sheet160" value="160sheets">
+                                <label class="form-check-label" for="sheet160">
+                                    160
+                                </label>
+                            </div>
+                            <hr>
+                            {{!-- <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault">
+                                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                                    input</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="flexSwitchCheckChecked" checked>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox
+                                    input</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="flexSwitchCheckDisabled" disabled>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox
+                                    input</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="flexSwitchCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked
+                                    switch checkbox input</label>
+                            </div> --}}
+                        </div>
+                        
+
+
+
+                    </div>
+                    </form>
+                    
+                    
+                    
+                    
+                </div>
+            </div> 
+            
+            <!-- Blank End -->
+
+
+            <!-- Footer Start -->
+            
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+   
+
+    <!-- JavaScript Libraries -->
+   
+    
+</body>
+
+</html>
+
+
+<script>
+    var bind = '{{product.Bind}}'
+    var size = '{{product.Size}}'
+    var gsm = '{{product.Gsm}}'
+    var sheet='{{product.Sheet}}'
+    var elastic='{{product.Elastic_Closure}}'
+    var corner='{{product.Rounded_Corner}}'
+
+    console.log(sheet)
+    if(bind=="Ring"){
+    document.getElementById('Ring').checked=true
+
+    }else if(bind=="Glue"){
+        document.getElementById('Glue').checked=true
+    }
+     //======================================================
+    
+    if(size=="A4"){
+        document.getElementById('A4').checked=true
+    }else if(size=="A5"){
+        document.getElementById('A5').checked=true
+    }else if(size=="A6"){
+        document.getElementById('A6').checked=true
+    }
+    //==========================================================
+    if(gsm=="80Gsm"){
+        document.getElementById('Gsm80').checked=true
+    }else if(gsm=="100Gsm"){
+        document.getElementById('Gsm100').checked=true
+    }else if(gsm=="120Gsm"){
+        document.getElementById('Gsm120').checked=true
+    }
+    //==========================================================
+    if(sheet=="80sheets"){
+        document.getElementById('sheet80').checked=true
+    }else if(sheet=="120sheets"){
+        document.getElementById('sheet120').checked=true
+    }else if(sheet=="160sheets"){
+        document.getElementById('sheet160').checked=true
+    }
+    //============================================
+    if(elastic=="elasticAvileble"){
+        document.getElementById('ElasticClosure').checked=true
+    }
+    //=====================================
+    if(corner=="cornerAvileble"){
+        document.getElementById('RoundedCorner').checked=true
+    }
+
+</script>
+<script>
+    function getImage(event) {
+        let inputDiv = document.getElementById('image-div')  // This is given for when we add images upto limit we dont need to display the option for adding image. In below we are displaying it none
+        if (event.target.files && event.target.files[0]) {
+            console.log(event.target.files) //There will a be a Filelist. It contains 'FileList {0: File, 1: File, length: 2}' and also there is a details of images too like lastmodified,date etc
+            let leng = event.target.files.length
+            console.log(leng)
+            if (leng > 3) {
+                document.getElementById('Imageid').value = null //This is given, if we select images more than the limit value inside ImageId should be 
+                alert('3 pictures are allowed')
+            } else {
+
+                for (let i = 0; i < leng; i++) {
+                    if (i == 2) {
+                        inputDiv.style.display = 'none'
+                    }
+                    let one = document.getElementById('image-show-' + [i]) //Used to show image according to image tag
+                    one.style.display = 'inline'
+                    one.src = URL.createObjectURL(event.target.files[i]) //Used to get the image using the image url
+
+                }
+            }
+        }
+
+    }
+</script>
+ <script>
+        document.getElementById('products').classList+="active"
+    </script>

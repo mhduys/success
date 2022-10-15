@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
+    {{!-- data tabele --}}
+	
+	{{!-- data tabele --}}
+<script>
+    $(document).ready( function () {
+    $('#table').DataTable();
+} );
+</script>
+
+
+</head>
+
+{{>admin-header}}
+<div class="container-fluid position-relative d-flex p-0">
+    <div class="content">
+        <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Salse Report</h6>
+                        
+                        <button onclick="ExportToExcel('xlsx')" class="btn btn-danger"><i class="fa fa-print"
+                                aria-hidden="true"></i> Download</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="table" class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                        <th scope="col">Order ID</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Payment Method</th>
+                                        
+                                        
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                {{#each salesReport}}
+                                    <tr>
+                                        
+                                        <td>{{this.Id}}</td>
+                                        <td>{{this.date}}</td>
+                                        <td>{{this.product}}</td>
+                                        <td>{{this.price}}</td>
+                                        <td>{{this.quantity}}</td>
+                                        <td>{{this.payment_method}}</td>
+                                       
+                                        
+                                    </tr>
+                                    {{/each}}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+       
+    </div>
+</div>
+
+
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="/admin/js/data_table.js"></script>
+<script type="text/javascript">
+		// basic usage
+      
+		$('#table').tablemanager({
+			firstSort: [[3,0],[2,0],[1,'asc']],
+			disable: ["last"],
+			appendFilterby: true,
+			dateFormat: [[4,"dd-mm-yyyy"]],
+			debug: true,
+			vocabulary: {
+				voc_filter_by: 'Filtra per',
+				voc_type_here_filter: 'Search...',
+				voc_show_rows: 'Limit'
+			},
+			pagination: true,
+			showrows: [1,10,20,50,100],
+			disableFilterBy: [1]
+		});
+		// $('.tablemanager').tablemanager();
+
+
+
+        
+	</script>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <script>
+        //Table Management
+    $('#tablemanager').tablemanager({
+			firstSort: [[3,0],[2,0],[1,'asc']],
+			disable: ["last"],
+			appendFilterby: true,
+			dateFormat: [[4,"dd-mm-yyyy"]],
+			debug: true,
+			vocabulary: {
+				voc_filter_by: 'Filtra per',
+				voc_type_here_filter: 'Scrivi qui per filtrare...',
+				voc_show_rows: 'Mostra righe'
+			},
+			pagination: true,
+			showrows: [10,20,50,100],
+			disableFilterBy: [1]
+		});
+
+    //Table Excel
+    function ExportToExcel(type, fn, dl) {
+       var elt = document.getElementById('table');
+       var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+       return dl ?
+         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+         XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+
+
+
+        $(document).ready( function () {
+    $('#tbl_exporttable_to_xls').DataTable();
+} );
+    </script>
+    
+
+
+
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description"
+		content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Single Product</title>
+
+	<!-- favicon -->
+
+
+</head>
+
+<body>
+
+	<!--PreLoader-->
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+	<!--PreLoader Ends-->
+
+	<!-- header -->
+	{{>user-header}}
+	<!-- end header -->
+
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search arewa -->
+
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>See more Details</p>
+						<h1>Single Product</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- single product -->
+	<div class="single-product mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<div class="single-product-img">
+						<img src="/admin/product-Images/{{product.Image.[0]}}" alt="">
+					</div>
+				</div>
+				<div class="col-md-7">
+					<div class="single-product-content">
+						<h3>{{product.Name}}</h3>
+						<p class="single-product-pricing"><span></span>₹ {{product.Price}}</p>
+						<p>{{product.Description}}</p>
+						<hr>
+						<div class="row">
+							<div class="col-6">
+								<ul>
+									<h4>Fetures</h4>
+									<li>{{product.Bind}}</li>
+									<li>{{product.Elastic_Closure}}</li>
+									<li>{{product.Size}}</li>
+									<li>{{product.Gsm}}</li>
+									<li>{{product.Sheet}}</li>
+
+								</ul>
+							</div>
+							<div class="col-6">
+								<p><strong>Success</strong> is an Indian brand of student stationery products. ITC Limited (formerly
+									Indian Tobacco Company) launched its Success brand in 2003 with the notebooks
+									category. Subsequently, Success added sketch books, Diarys, and Office Notepad to
+									its portfolio. It uses eco-friendly and elemental chlorine-free paper.</p>
+
+							</div>
+
+						</div>
+						<div class="single-product-form">
+
+							<p><strong>Category: </strong>{{product.Category}}</p>
+							<div class="d-flex justify-content-center p-3 ">
+								<div class="">
+									<button class="btn btn-success" onclick="addToCart('{{product._id}}')"><i
+											class="fas fa-shopping-cart"></i> cart</button>
+								</div>
+								<div class="ml-2">
+									<button class="btn btn-primary" onclick="addToWishlist('{{product._id}}')"><i
+											class="fa fa-heart befor" aria-hidden="true" id="wishlist"></i>
+										wishlist</button>
+								</div>
+							</div>
+							{{!-- <a href="" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a> --}}
+						</div>
+						<h4>Share:</h4>
+						<ul class="product-share">
+							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href=""><i class="fab fa-twitter"></i></a></li>
+							<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
+							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end single product -->
+
+	<!-- more products -->
+	{{!-- <div class="more-products mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3><span class="orange-text">Related</span> Products</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet
+							beatae optio.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="/admin/product-Images/1664978797738--asset 18.jpeg"
+									alt=""></a>
+						</div>
+						<h3>Strawberry</h3>
+						<p class="product-price"><span>Per Kg</span> 85$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="user/assets/img/products/product-img-2.jpg"
+									alt=""></a>
+						</div>
+						<h3>Berry</h3>
+						<p class="product-price"><span>Per Kg</span> 70$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="user/assets/img/products/product-img-3.jpg"
+									alt=""></a>
+						</div>
+						<h3>Lemon</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> --}}
+	<!-- end more products -->
+
+	<!-- logo carousel -->
+
+	<!-- end logo carousel -->
+
+	<!-- footer -->
+	<!-- footer -->
+<div class="footer-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box about-widget">
+					<h2 class="widget-title">About us</h2>
+					<p>Success is an Indian brand of student stationery products. ITC Limited (formerly Indian Tobacco Company) launched its Success brand in 2003 with the notebooks category. Subsequently, Success added sketch books, Diarys, and Office Notepad to its portfolio. It uses eco-friendly and elemental chlorine-free paper..</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li>7/2 kinfra tecno park.</li>
+						<li>uvaiskolambalam@gmail.com</li>
+						<li>9745741171</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box pages">
+					<h2 class="widget-title">Pages</h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/shop?page=1">Shop</a></li>
+						
+						
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box subscribe">
+					<h2 class="widget-title">Subscribe</h2>
+					<p>Subscribe to our mailing list to get the latest updates.</p>
+					{{!-- <form action="index.html">
+						<input type="email" placeholder="Email">
+						<button type="submit"><i class="fas fa-paper-plane"></i></button>
+					</form> --}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<p>Copyrights &copy; 2022 - <a href="https://mhduys.github.io/personal-website/">Muhammed Uvais</a>, All Rights
+					Reserved.<br>
+					Distributed By - <a href="https://themewagon.com/">eyeblue</a>
+				</p>
+			</div>
+			<div class="col-lg-6 text-right col-md-12">
+				<div class="social-icons">
+					<ul>
+						<li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="https://wa.me/+919745741171" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- end copyright -->
+
+	<!-- jquery -->
+
+
+</body>
+<script>
+	function addToCart(proId) {
+		$.ajax({
+			url: '/add-to-cart/' + proId,
+			method: 'get',
+			success: (response) => {
+				if (response.status) {
+					let count = $('#cart-count').html()
+					count = parseInt(count) + 1
+					$('#cart-count').html(count)
+					//alert("item added to cart")
+				} else {
+					location.href = "/login"
+				}
+
+			}
+		})
+
+	}
+	function addToWishlist(proId) {
+		$.ajax({
+			url: 'add-to-wishlist/' + proId,
+			method: 'get',
+			success: (response) => {
+				if (response) {
+					if (response.removeproductFromWishlist) {
+
+						document.getElementById(proId + "Heart").style.color = "blue"
+						//$(proId+"Heart").css("color","white")
+
+
+
+					} else if (response.addToWishlist) {
+
+						document.getElementById(proId + "Heart").style.color = "red"
+
+						//$(proId+"Heart").css("color","red")
+
+					} else if (response.notLogin) {
+						alert("you have not add this item befor login, Pleas login")
+					}
+
+
+
+
+				}
+			}
+		})
+	}
+
+</script>
+
+</html>

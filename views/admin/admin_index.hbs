@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+
+</head>
+
+<body>
+
+    {{!-- {{#if admin}} --}}
+    {{>admin-header}}
+    {{!-- {{/if}} --}}
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+
+            <!-- Navbar End -->
+
+
+            <!-- Sale & Revenue Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <a href="/admin/salesInvoice"><button class="btn btn-warning"><i class="fa fa-print"
+                                aria-hidden="true"></i> Download sales report</button></a>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-users fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Users</p>
+                                <h6 class="mb-0">{{totalUsers}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            {{!-- <i class="fa fa-chart-bar fa-3x text-primary"></i> --}}
+                            <i class="fa fa-laptop fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Products</p>
+                                <h6 class="mb-0">{{totalProducts}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-puzzle-piece fa-3x text-primary"></i>
+                            {{!-- <i class="fa fa-chart-area fa-3x text-primary"></i> --}}
+                            <div class="ms-3">
+                                <p class="mb-2">Total Categorys</p>
+                                <h6 class="mb-0">{{totalCategorys}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            {{!-- <i class="fa fa-chart-pie fa-3x text-primary"></i> --}}
+                            <i class="fa fa-coffee fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Coupon</p>
+                                <h6 class="mb-0">{{totalCoupon}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Orders</p>
+                                <h6 class="mb-0">{{totalOrders}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-envelope-open fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Placed</p>
+                                <h6 class="mb-0">{{totalSales}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Shipped</p>
+                                <h6 class="mb-0">{{totalShipped}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Deleverd</p>
+                                <h6 class="mb-0">{{totalDeleverd}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-ban  fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Canceled</p>
+                                <h6 class="mb-0">{{totalCnaceled}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Revenue</p>
+                                <h6 class="mb-0">{{totalRevenue.[0].totalAmout}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            {{!-- <i class="fa fa-usd fa-3x text-primary"></i> --}}
+                            <i class="fa fa-address-card fa-3x text-primary" aria-hidden="true"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">COD</p>
+                                <h6 class="mb-0">{{totalCOD}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-university fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Online</p>
+                                <h6 class="mb-0">{{totalOnline}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sale & Revenue End -->
+
+
+            <!-- Sales Chart Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">COD & Online</h6>
+                                <a href="">Show All</a>
+                            </div>
+                            <canvas id="salse-revenue"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-secondary text-center rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Worldwide Sales</h6>
+                                <a href="">Show All</a>
+                            </div>
+                            <canvas id="line-chart"></canvas>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            
+
+            
+            <!-- Sales Chart End -->
+
+
+            <!-- Recent Sales Start -->
+
+            <!-- Widgets End -->
+
+
+            <!-- Footer Start -->
+
+</body>
+
+
+</html>

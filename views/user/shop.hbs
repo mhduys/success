@@ -1,0 +1,426 @@
+{{>user-header}}
+<!-- search area -->
+<div class="search-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<span class="close-btn"><i class="fas fa-window-close"></i></span>
+				<div class="search-bar">
+					<div class="search-bar-tablecell">
+						<h3>Search For:</h3>
+						<input type="text" placeholder="Keywords">
+						<button type="submit">Search <i class="fas fa-search"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end search arewa -->
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p>Write & Cool</p>
+					{{#if category}}
+					<h1>{{this.productCategory}}</h1>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+
+
+<!-- products -->
+
+<div class="product-section mt-150 mb-150">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-12">
+
+						<form class="d-none d-flex ms-4" action="/search" method="get">
+							<input class="form-control bg-dark border-0 text-white" type="search" placeholder="Search"
+								name="searchKey">
+							<button type="submit" class="btn btn-dark"><i class="fa fa-search"
+									aria-hidden="true"></i></button>
+
+
+						</form>
+					</div>
+					
+
+				</div>
+				<div class="product-filters">
+					<ul>
+
+						{{!-- <a href="/shop">
+							<li class="active" data-filter="*">All</li>
+						</a> --}}
+						<a href="/shop?page=1">
+							<li class="active" data-filter="*">All</li>
+						</a>
+						{{#each category}}
+						<a href="/product/{{this.productCategory}}">
+							<li class="active" data-filter="*">{{this.productCategory}}</li>
+						</a>
+						{{/each}}
+						{{!-- <a href="/sketchbook">
+							<li>Sketchbook</li>
+						</a>
+						<a href="/office">
+							<li>Office</li>
+						</a>
+						<a href="/diary">
+							<li>Diary</li>
+						</a> --}}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row product-lists">
+
+			{{#if product}} {{!-- sketchbook --}}
+			{{#each product}}
+
+			<div class="col-md-3 col text-center">
+
+
+				{{!-- ============================================ --}}
+				<div class="card single-product-item rounded">
+					<div style="position: absolute;">
+						<button onclick="addToWishlist('{{this._id}}')" style="border: none;background:none ;"><i
+								class="fa fa-heart befor" aria-hidden="true" id="{{this._id}}Heart"></i></button>
+					</div>
+					<a href="/viewSingleProduct/{{this._id}}">
+						<div class="d-flex align-itmes-center justify-content-center " style="height: 180px;">
+
+						<img style="width: 150px; padding: 6px; overflow:visible;"
+							src="/admin/product-Images/{{this.Image.[0]}}" class="card-img-top"
+							alt="Fissure in Sandstone" />
+					</div>
+					</a>
+					<div class="card-body">
+						<h6 class="text-info">{{this.Description}}</h6>
+
+
+						<div class=" d-flex justify-content-start">
+							<h6>{{this.Name}}</h6>
+						</div>
+						<div class=" d-flex justify-content-start">
+							<span class="badge badge-success">{{this.Star}} ★</span>
+						</div>
+
+						<div class=" d-flex justify-content-start">
+							<p><strong>₹:{{this.Price}}</strong> <span class="text-secondary"><del>₹:{{this.Discount}}</del></span>
+							</p>
+						</div>
+						<div class=" d-flex justify-content-start">
+							<span class="text-success">{{this.Offer}}% off</span>
+						</div>
+
+						<div class=" d-flex justify-content-start">
+							<p>Free Delevery</p>
+
+						</div>
+
+
+
+
+						{{!-- <a href="#!" class="btn btn-primary"> Button</a> --}}
+					</div>
+					<div class="d-flex justify-content-center p-3 ">
+						<div class="">
+							<button class="btn btn-success" onclick="addToCart('{{this._id}}')"><i
+									class="fas fa-shopping-cart"></i> cart</button>
+						</div>
+						<div class="ml-2">
+							<button class="btn btn-primary" onclick="addToWishlist('{{this._id}}')"><i
+									class="fa fa-heart befor" aria-hidden="true" id="wishlist"></i> wishlist</button>
+						</div>
+					</div>
+
+				</div>
+
+
+			</div>
+
+			{{/each}}
+			{{/if}}
+			{{#if productByCategory}}
+			{{#each productByCategory}}
+			{{!-- ================================================== --}}
+			<div class="col-md-3 col text-center">
+
+				{{!-- ============================================ --}}
+				<div class="card single-product-item rounded">
+					<div style="position: absolute;">
+						<button onclick="addToWishlist('{{this._id}}')" style="border: none;background:none ;"><i
+								class="fa fa-heart befor" aria-hidden="true" id="{{this._id}}Heart"></i></button>
+					</div>
+					<a href="/viewSingleProduct/{{this._id}}">
+						<div class="d-flex align-itmes-center justify-content-center  " style="height: 180px;">
+
+						<img style="width: 150px; padding: 6px; overflow:visible;"
+							src="/admin/product-Images/{{this.Image.[0]}}" class="card-img-top"
+							alt="Fissure in Sandstone" />
+					</div>
+					</a>
+					<div class="card-body">
+						<h6 class="text-info">{{this.Description}}</h6>
+
+
+						<div class=" d-flex justify-content-start">
+							<h6>{{this.Name}}</h6>
+						</div>
+						<div class=" d-flex justify-content-start">
+							<span class="badge badge-success">{{this.Star}} ★</span>
+						</div>
+
+						<div class=" d-flex justify-content-start">
+							<p><strong>₹:{{this.Price}}</strong> <span class="text-secondary"><del>₹:{{this.Discount}}</del></span>
+							</p>
+						</div>
+						<div class=" d-flex justify-content-start">
+							<span class="text-success">{{this.Offer}}% off</span>
+						</div>
+
+						<div class=" d-flex justify-content-start">
+							<p>Free Delevery</p>
+
+						</div>
+
+
+
+
+						{{!-- <a href="#!" class="btn btn-primary"> Button</a> --}}
+					</div>
+					<div class="d-flex justify-content-center p-3 ">
+						<div class="">
+							<button class="btn btn-success" onclick="addToCart('{{this._id}}')"><i
+									class="fas fa-shopping-cart"></i> cart</button>
+						</div>
+						<div class="ml-2">
+							<button class="btn btn-primary" onclick="addToWishlist('{{this._id}}')"><i
+									class="fa fa-heart befor" aria-hidden="true" id="wishlist"></i> wishlist</button>
+						</div>
+					</div>
+
+				</div>
+
+
+			</div>
+			
+			{{!-- ======================================================= --}}
+
+
+
+			{{/each}}
+			{{/if}}
+			{{!-- {{#each products}} --}}
+
+			{{!-- office --}}
+			{{!-- <div class="col-lg-4 col-md-6 text-center office">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.html"><img src="user/assets/img/products/product-img-2.jpg" alt=""></a>
+					</div>
+					<h3>{{this.Name}}</h3>
+					<p class="product-price"><span>Per Kg</span> 70$ </p>
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div> --}}
+			{{!-- diary --}}
+			{{!-- <iv class="col-lg-4 col-md-6 text-center diary">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.html"><img src="user/assets/img/products/product-img-3.jpg" alt=""></a>
+					</div>
+					<h3>{{this.Name}}</h3>
+					<p class="product-price"><span>Per Kg</span> 35$ </p>
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</iv>
+			{{/each}} --}}
+			{{!-- <div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.html"><img src="user/assets/img/products/product-img-4.jpg" alt=""></a>
+					</div>
+					<h3>Avocado</h3>
+					<p class="product-price"><span>Per Kg</span> 50$ </p>
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.html"><img src="user/assets/img/products/product-img-5.jpg" alt=""></a>
+					</div>
+					<h3>Green Apple</h3>
+					<p class="product-price"><span>Per Kg</span> 45$ </p>
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center scetchbook">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.html"><img src="user/assets/img/products/product-img-6.jpg" alt=""></a>
+					</div>
+					<h3>Strawberry</h3>
+					<p class="product-price"><span>Per Kg</span> 80$ </p>
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div> --}}
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="pagination-wrap d-flex justify-content-center align-items-center">
+					<ul class="pagination pagination-sm">
+						{{!-- <li><a href="#">Prev</a></li> --}}
+						{{#each arr}}
+						<li class="page-item"><a class="page-link" href="/shop?page={{this}}">{{this}}</a></li>
+						{{/each}}
+						{{!-- <li class="page-item"><a class="page-link" href="/?page=2">2</a></li>
+						<li class="page-item"><a class="page-link" href="/?page=3">3</a></li> --}}
+						{{!-- <li><a href="#">Next</a></li> --}}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end products -->
+<!-- footer -->
+	<!-- footer -->
+<div class="footer-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box about-widget">
+					<h2 class="widget-title">About us</h2>
+					<p>Success is an Indian brand of student stationery products. ITC Limited (formerly Indian Tobacco Company) launched its Success brand in 2003 with the notebooks category. Subsequently, Success added sketch books, Diarys, and Office Notepad to its portfolio. It uses eco-friendly and elemental chlorine-free paper..</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li>7/2 kinfra tecno park.</li>
+						<li>uvaiskolambalam@gmail.com</li>
+						<li>9745741171</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box pages">
+					<h2 class="widget-title">Pages</h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/shop?page=1">Shop</a></li>
+						
+						
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box subscribe">
+					<h2 class="widget-title">Subscribe</h2>
+					<p>Subscribe to our mailing list to get the latest updates.</p>
+					{{!-- <form action="index.html">
+						<input type="email" placeholder="Email">
+						<button type="submit"><i class="fas fa-paper-plane"></i></button>
+					</form> --}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<p>Copyrights &copy; 2022 - <a href="https://mhduys.github.io/personal-website/">Muhammed Uvais</a>, All Rights
+					Reserved.<br>
+					Distributed By - <a href="https://themewagon.com/">eyeblue</a>
+				</p>
+			</div>
+			<div class="col-lg-6 text-right col-md-12">
+				<div class="social-icons">
+					<ul>
+						<li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="https://wa.me/+919745741171" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- end footer -->
+<script>
+	function addToCart(proId) {
+		$.ajax({
+			url: '/add-to-cart/' + proId,
+			method: 'get',
+			success: (response) => {
+				if (response.status) {
+					let count = $('#cart-count').html()
+					count = parseInt(count) + 1
+					$('#cart-count').html(count)
+					//alert("item added to cart")
+				} else {
+					location.href = "/login"
+				}
+
+			}
+		})
+
+	}
+	function addToWishlist(proId) {
+		$.ajax({
+			url: 'add-to-wishlist/' + proId,
+			method: 'get',
+			success: (response) => {
+				if (response) {
+					if (response.removeproductFromWishlist) {
+
+						document.getElementById(proId + "Heart").style.color = "blue"
+						//$(proId+"Heart").css("color","white")
+
+
+
+					} else if (response.addToWishlist) {
+
+						document.getElementById(proId + "Heart").style.color = "red"
+
+						//$(proId+"Heart").css("color","red")
+
+					} else if (response.notLogin) {
+						alert("you have not add this item befor login, Pleas login")
+					}
+
+
+
+
+				}
+			}
+		})
+	}
+
+</script>

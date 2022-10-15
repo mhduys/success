@@ -1,0 +1,198 @@
+{{>admin-header}}
+<div class="container-fluid position-relative d-flex p-0">
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Sidebar Start -->
+
+    <!-- Sidebar End -->
+
+
+    <!-- Content Start -->
+    <div class="content">
+        <!-- Navbar Start -->
+
+        <!-- Navbar End -->
+
+
+        <!-- Blank Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="row ">
+
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded p-4">
+                        <h6 class="mb-4">Address</h6>
+                        <ul class="list-unstyled mb-0">
+
+                            <li>Name: {{products.[0].deliveryDeatails.Name}}</li>
+                            <li>House: {{products.[0].deliveryDeatails.House}}</li>
+                            <li>Place: {{products.[0].deliveryDeatails.Place}}</li>
+                            <li>Town: {{products.[0].deliveryDeatails.Town}}</li>
+                            <li>Mobile: {{products.[0].deliveryDeatails.Mobile}}</li>
+                            <li>Pin Code: {{products.[0].deliveryDeatails.Pin}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-xl-6">
+                    <div class="bg-secondary rounded p-4">
+                        <h6 class="mb-4">Order Deatails</h6>
+                        <ul class="list-unstyled mb-0">
+
+                            <li>Date: {{products.[0].dateAndTime}}</li>
+                            <li>Price: {{products.[0].totalAmount}}</li>
+                            <li>Payment Method: {{products.[0].paymentMethod}}</li>
+                            <li>Product Quantity: {{products.[0].products.quantity}}</li>
+                            <li id="orderStatus">Status: {{products.[0].status}}</li>
+                            
+
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- Blank End -->
+
+
+        <!-- Footer Start -->
+        <div class="container-fluid pt-4 px-4">
+            <div class="bg-secondary rounded-top p-4">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Responsive Table</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Sl.No</th>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Cateogory</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">control</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each proDeatails}}
+                                        <tr>
+                                            <th scope="row">{{@index}}</th>
+                                            <td><img style="width: 30px;"
+                                                    src="/admin/product-Images/{{this.product.Image.[0]}}" alt=""></td>
+                                            <td>{{this.product.Name}}</td>
+                                            <td>{{this.product.Price}}</td>
+                                            <td>{{this.product.Category}}</td>
+                                            <td>{{this.product.status}}</td>
+                                            <td>Member</td>
+                                        </tr>
+                                        {{/each}}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            {{!-- ============================= --}}
+            <div class="col-sm-12 mt-3">
+                <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Progress Bar</h6>
+                    
+                    <button id="placed" value="placed" onclick="placed('{{products.[0]._id}}')" class="btn btn-warning"> Placed</button>
+                    <button id="shipped" value="shipped" onclick="shipped('{{products.[0]._id}}')" class="btn btn-info"> Shipped</button>
+                    <button id="deleverd" value="deleverd" onclick="deleverd('{{products.[0]._id}}')" class="btn btn-success"> Deleverd</button>
+
+                    <div class="progress mt-2">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="25" style="width: 25%;"
+                            aria-valuemin="0" aria-valuemax="100" id="progressBar">25%</div>
+                    </div>
+
+
+                </div>
+            </div>
+            {{!-- ============================= --}}
+        </div>
+         <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Footer End -->
+
+    </div>
+    <!-- Content End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+<script>
+    function placed(proId){ 
+        
+        let progressValue=document.getElementById('placed').value
+        
+        $.ajax({
+            url:'/admin/placed',
+            data:{proId:proId,progressValue:progressValue},
+            method:'post',
+            success:(response)=>{
+                if(response.placed){
+                    document.getElementById('orderStatus').innerHTML='Status: placed'
+                }
+
+            }
+        })
+    }
+    function shipped(proId){
+        let progressValue=document.getElementById('shipped').value
+        
+        console.log(progressValue)
+        $.ajax({
+            url:'/admin/shipped',
+            data:{proId:proId,progressValue:progressValue},
+            method:'post',
+            success:(response)=>{
+                if(response.shipped){
+                    document.getElementById('orderStatus').innerHTML='Status: shipped'
+                }
+
+            }
+        })
+    }
+    function deleverd(proId){
+        let progressValue=document.getElementById('deleverd').value
+        $.ajax({
+            url:'/admin/deleverd',
+            data:{proId:proId,progressValue:progressValue},
+            method:'post',
+            success:(response)=>{
+                if(response.deleverd){
+                    document.getElementById('orderStatus').innerHTML='Status: deleverd'
+                }
+
+            }
+        })
+    }
+</script>
+

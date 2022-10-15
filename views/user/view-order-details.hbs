@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- <title>Document</title> --}}
+    <style>
+        body{
+            background-color: rgb(217, 223, 220);
+        }
+        .address{
+            margin-top: 50px;
+            width: 100%;
+           
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 5px 5px #a3a0a0;
+        }
+        .details{
+            margin-top: 50px;
+            width: 100%;
+           
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 5px 5px #a3a0a0;
+        }
+        .adderssDatails p{
+           
+            margin: 0px;
+            padding-left: 3%;
+
+        }
+        .adderssDatails h6{
+             padding-left: 3%;
+             padding-top: 20px;
+        }
+        .image{
+            margin: 10px;
+            width: 40%;
+         
+            background-color: #a01111;
+        }
+    </style>
+</head>
+<body>
+    {{>user-header}}
+    <div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>We sale premium books</p>
+						<h1>Product</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="container">
+        <a href="/orders"><button class="btn btn-primary mt-2">Go to orders</button></a>
+        <div class="row">
+            <div class="col-6">
+                <div class="address">
+                    <div class="adderssDatails">
+                        <h6>Address</h6>
+                        <p>Name: <strong>{{address.deliveryDeatails.Name}}</strong></p>
+                        <p>House: <strong>{{address.deliveryDeatails.House}}</strong></p>
+                        <p>Place: <strong>{{address.deliveryDeatails.Place}}</strong></p>
+                        <p>Town: <strong>{{address.deliveryDeatails.Town}}</strong></p>
+                        <p>Mobile: <strong>{{address.deliveryDeatails.Mobile}}</strong></p>
+                        <p>Pin: <strong>{{address.deliveryDeatails.Pin}}</strong></p>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="address">
+                    <div class="adderssDatails d-flex justify-content-around">
+                        <div>
+                            <h6>Order Details</h6>
+                        <p>Total Amount: <strong>₹ {{address.LastPrice}}</strong></p>
+                        <p>Date: <strong> {{address.dateAndTime}}</strong></p>
+                        <p>Payment Method: <strong> {{address.paymentMethod}}</strong></p>
+                        <p>Status: <strong> {{address.status}}</strong></p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <a href="/invoice/{{address._id}}"><button class="btn btn-primary"><i class="fa fa-download" aria-hidden="true"></i>Dowload Invoice</button></a>
+                        </div>
+                       
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 ">
+                           {{#each products}}
+                <div class="details">
+                    <div class="row d-flex justify-content-around">
+                        <div class="col-md-4 d-flex align-items-center ">
+                                <img class="image" src="/admin/product-Images/{{this.products.Image.[0]}}" alt="">
+                                <div class="">
+                                    <p><strong>{{this.products.Description}}</strong></p>
+                                    <p>Price: <strong>Rs: {{this.products.Price}}</strong></p>
+                                     <p>Category:<strong> {{this.products.Category}}</strong></p>
+                                </div>
+                               
+                        </div>
+                        <div class="col-md-4  d-flex align-items-center justify-content-center">
+                           
+                           
+                                
+                                <div class="">
+                                    <p>Status: <strong>{{../address.status}}</strong></p>
+                                    <p>Date: <strong>{{../address.dateAndTime}}</strong></p>
+                                     <p>Quantity: <strong>{{this.qunatity}}</strong></p>
+                                </div>
+                               
+                     
+                               
+                        </div>
+                       <div class="col-md-4 d-flex align-items-center justify-content-around">
+                           
+                           
+                                
+                                <div class="">
+                                    <button class="btn btn-danger">Cancel</button>
+                                </div>
+                               
+                     
+                               
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <section class="mt-5">
+        <!-- footer -->
+<div class="footer-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box about-widget">
+					<h2 class="widget-title">About us</h2>
+					<p>Success is an Indian brand of student stationery products. ITC Limited (formerly Indian Tobacco Company) launched its Success brand in 2003 with the notebooks category. Subsequently, Success added sketch books, Diarys, and Office Notepad to its portfolio. It uses eco-friendly and elemental chlorine-free paper..</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li>7/2 kinfra tecno park.</li>
+						<li>uvaiskolambalam@gmail.com</li>
+						<li>9745741171</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box pages">
+					<h2 class="widget-title">Pages</h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/shop?page=1">Shop</a></li>
+						
+						
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box subscribe">
+					<h2 class="widget-title">Subscribe</h2>
+					<p>Subscribe to our mailing list to get the latest updates.</p>
+					{{!-- <form action="index.html">
+						<input type="email" placeholder="Email">
+						<button type="submit"><i class="fas fa-paper-plane"></i></button>
+					</form> --}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<p>Copyrights &copy; 2022 - <a href="https://mhduys.github.io/personal-website/">Muhammed Uvais</a>, All Rights
+					Reserved.<br>
+					Distributed By - <a href="https://themewagon.com/">eyeblue</a>
+				</p>
+			</div>
+			<div class="col-lg-6 text-right col-md-12">
+				<div class="social-icons">
+					<ul>
+						<li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="https://wa.me/+919745741171" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    </section>
+
+</body>
+</html>

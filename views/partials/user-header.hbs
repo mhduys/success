@@ -1,0 +1,92 @@
+<div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+	
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="/">
+								<img src="/user/assets/img/logo.png" alt="">
+							</a>
+						</div>
+						<!-- logo -->
+
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li ><a href="/">Home</a>
+									{{!-- <ul class="sub-menu">
+										<li><a href="index.html">Static Home</a></li>
+										<li><a href="index_2.html">Slider Home</a></li>
+									</ul> --}}
+								</li>
+								<li><a href="/about">About</a></li>
+								{{!-- <li><a href="news.html">News</a>
+									<ul class="sub-menu">
+										<li><a href="news.html">News</a></li>
+										<li><a href="single-news.html">Single News</a></li>
+									</ul>
+								</li>--}}
+								{{!-- <li ><a href="/shop">Shop</a> --}}
+								<li><a href="/cart">Cart</a></li>
+								<li><a href="/wishlist">Wishlist</a></li> 
+									{{!-- <ul class="sub-menu">
+										<li><a href="user/shop">Shop</a></li>
+										<li><a href="checkout.html">Check Out</a></li>
+										<li><a href="single-product.html">Single Product</a></li>
+										<li><a href="cart.html">Cart</a></li>
+									</ul> --}}
+								</li>
+								
+								<li>
+									<div class="header-icons">
+										
+										<a class="mobile-hide" href="/cart"><i class="fas fa-shopping-cart" ><span class="badge badge-info" id="cart-count">{{cartCount}}</span></i></a>
+										<a class="Wishlist" href="/wishlist"><i class="fas fa fa-heart"></i></a>
+										
+										
+										{{!-- <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a> --}}
+										{{#if user}}
+										<a class="user-profile" href="/userProfile">
+										{{!-- <i class="fa fa-user-circle " aria-hidden="true"></i> --}}
+										<div class="position-relative">
+											<img class="rounded-circle" src="/admin/img/admin.jpg" alt="" style="width: 40px; height: 40px;">
+												
+											{{!-- <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div> --}}
+										</div>
+										</a>
+										
+										{{else}}
+										
+										
+										<a href="/login"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+										{{/if}}
+
+									</div>
+
+								</li>
+								
+							</ul>
+							
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    
+
+
+    

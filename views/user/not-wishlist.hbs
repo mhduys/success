@@ -1,0 +1,51 @@
+{{!-- {{>user-header}} --}}
+<style>
+    body{
+        background-color: rgb(219, 213, 213);
+    }
+    .not_wishlist{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .not_wishlist_text p{
+        
+        font-size: 20px;
+    }
+    .not_wishlist_text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .not_wishlist_text a i{
+        font-size: 50px;
+        color: #d3000c;
+    }
+    .not_wishlist_text a i:hover{
+        color: #2d190b;
+    }
+    
+    
+    
+
+</style>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="not_wishlist">
+                    <div class="not_wishlist_gif">
+                        <img src="/user/assets/img/giphy.gif" alt="">
+                    </div>
+                    <div class="not_wishlist_text">
+                        <p>You have not wishlist items!</p>
+                        <a href="/shop"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- <title>Document</title> --}}
+    <style>
+        body{
+            
+            background-image: linear-gradient(to right, rgb(247, 0, 255) , rgb(0, 140, 255))
+        }
+        .Card{
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 20px 25px -5px, rgba(0, 0, 0, 0.09) 0px 10px 20px -5px;
+        }
+        .msg p{
+            margin: 0;
+        }
+       
+       
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="row d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="Card bg-light border">
+            <div class="details d-flex flex-column justify-content-center align-items-center p-4">
+                <div class="Image">
+                    <img src="" alt="">
+                </div>
+                <div class="success">
+                    <div>
+                        <h4 class="text-success">Order Placed Successfully</h4>
+                    </div>
+                    <div class=" msg d-flex flex-column justify-content-center align-items-center">
+                        <p>Thank You For Purchasing</p>
+                        <p>The Order Was Successfully Placed</p>
+                    </div>
+
+                </div>
+                <div class="button ">
+                    <a href="/orders"><button class="btn btn-success">Go to orders</button></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+    
+</body>
+</html>

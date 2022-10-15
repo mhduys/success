@@ -1,0 +1,145 @@
+{{>admin-header}}
+<div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            
+            <!-- Navbar End -->
+
+
+            <!-- Blank Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row bg-secondary rounded align-items-center justify-content-center mx-0">
+                    
+                    <div class="col-md-6 text-center">
+                        <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            {{!-- <a href="index.html" class="">
+                                <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>DarkPan</h3>
+                            </a> --}}
+                            <h5>ADD COUPON</h5>
+                            {{#if Error}}
+                            <p>{{Error}}</p>
+                            {{/if}}
+                        </div>
+                       <form name="myForm" action="/admin/addCoupon" method="post" onsubmit="return validateForm()" >
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="couponCode" id="floatingInput" placeholder="name@example.com" >
+                            <label for="floatingInput">Coupon Code</label>
+                            
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="descountPrice" id="floatingInput" placeholder="name@example.com" >
+                            <label for="floatingInput">Descount Price</label>
+                            
+                        </div>
+                        <div class="form-floating mb-3">
+                            {{!-- <label for="html5-datetime-local-input" placeholder="Expiry Date" class="col-md-2 col-form-label">Expiry Date</label> --}}
+                            <div>
+                                <input
+                                name="ExpiryDate"
+                                class="form-control"
+                                type="datetime-local"
+                                value="2022-6"
+                                id="html-datetime-local-input"
+                                />
+                            </div>
+                            {{!-- <input type="text" class="form-control" name="descountPrice" id="floatingInput" placeholder="name@example.com" > --}}
+                            
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Save Coupon</button>
+                        
+                        {{!-- <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p> --}}
+                        
+                    </form>
+                    </div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h6 class="mb-4">Coupon List</h6>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        
+                                        <th scope="col">Sl.No</th>
+                                        <th scope="col">Coupon Code</th>
+                                        <th scope="col">Descount Amount</th>
+                                        <th scope="col">Control</th>
+                                        
+                                        {{!-- <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th> --}}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each coupon}}
+                                    <tr>
+
+                                        <th scope="row">{{@index}}</th>
+                                        <td>{{this.couponCode}}</td>
+                                        <td>{{this.descountPrice}}</td>
+                                        <td><a href="/admin/deleteCoupon/{{this._id}}"><button  class="btn btn-ptimary" onclick="return confirm('are you want to delete {{this.Name}}')"><i class="bi bi-trash"></i></button></a></td>
+                                        
+                                        
+                                    </tr>
+                                    {{/each}}
+                                    {{!-- <tr>
+                                        <th scope="row">2</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>mark@email.com</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>jacob@email.com</td>
+                                    </tr> --}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blank End -->
+
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    <script>
+        document.getElementById('coupon').classList+="active"
+    </script>

@@ -1,0 +1,118 @@
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<div>
+    <div class="mt-5 ml-5">
+        <button class="btn btn-primary" id="download"><i class="fa fa-download" aria-hidden="true"></i> Download</button>
+    </div>
+    <div id="invoice">
+        <div class="card mt-5">
+            <div class="card-header bg-black"></div>
+            <div class="card-body">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <img style="width: 120px;" src="/user/assets/img/logo.png" alt="">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-6">
+
+                            <ul class="list-unstyled float-end">
+                                <li style="font-size: 30px; color: rgb(255, 166, 0);">SUCCESS</li>
+                                <li>123, Elm Street</li>
+                                <li>123-456-789</li>
+                                <li>success@mail.com</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+
+                            <ul class="list-unstyled float-end">
+                                <li>TO:</li>
+                                
+                                <li>{{address.deliveryDeatails.Name}},{{address.deliveryDeatails.House}}</li>
+                                <li></li>
+                                <li>{{address.deliveryDeatails.Place}}</li>
+                                <li>{{address.deliveryDeatails.Mobile}}</li>
+                                <li>{{address.deliveryDeatails.Town}}</li>
+                                <li>{{address.deliveryDeatails.Pin}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <h3 class="text-uppercase text-center mt-3" style="font-size: 40px;">Invoice</h3>
+                        
+                    </div>
+
+                    <div class="row mx-3">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each products}}
+                                <tr>
+                                    <td>{{this.products.Name}}</td>
+                                    <td><i class="fas fa-dollar-sign"></i> {{this.products.Price}}</td>
+                                </tr>
+                                {{/each}}
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
+                    
+                    <hr>
+                    <div class="row">
+                        <div class="col-xl-8">
+                            <p class="float-end"
+                                style="font-size: 30px; color: red; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
+                                Total:
+                                <span>₹ {{address.LastPrice}}</span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-2 mb-5">
+                        <p class="fw-bold">Date: <span class="text-muted">{{address.dateAndTime}}</span></p>
+                        
+                    </div>
+                    <div>
+                        <p class="">Signature:</p>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <div class="card-footer bg-black"></div>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        document.getElementById("download")
+            .addEventListener("click", () => {
+                const invoice = this.document.getElementById("invoice");
+                console.log(invoice);
+                console.log(window);
+                var opt = {
+                    margin: 1,
+                    filename: 'myfile.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                html2pdf().from(invoice).set(opt).save();
+            })
+    }
+  
+
+</script>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description"
+		content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<style>
+		/* Chrome, Safari, Edge, Opera */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		input[type='number'] {
+			width: 100%;
+		}
+	</style>
+
+
+</head>
+
+<body>
+
+	{{>user-header}}
+	<!--PreLoader-->
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+	<!--PreLoader Ends-->
+
+	<!-- header -->
+
+	<!-- end header -->
+
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search arewa -->
+
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Fresh and Organic</p>
+						<h1>Check Out Product</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- check out section -->
+
+	<div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
+
+				<!-- Accordion card -->
+				<div class="card">
+
+					<!-- Card header -->
+					<div class="card-header" role="tab" id="headingTwo1">
+						<a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo1"
+							aria-expanded="false" aria-controls="collapseTwo1">
+							<h5 class="mb-0 text-info">
+								<i class="fa fa-plus" aria-hidden="true"></i>Add Address
+							</h5>
+						</a>
+					</div>
+
+					<!-- Card body -->
+					<div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1"
+						data-parent="#accordionEx1">
+						<div class="card-body">
+							<form action="/add-deleveryAddress" method="post">
+								<div class="row mt-5 d-flex justify-content-center text-info border rounded"
+									id="address">
+
+
+									<div class="col-md-12 "><label class="labels">Name</label><input type="text"
+											name="Name" class="form-control " value=""></div>
+									<div class="col-md-6 "><label class="labels">Place</label><input type="text"
+											name="Place" class="form-control " value=""></div>
+
+									{{!-- <div class="col-md-6"><label class="labels">Country</label><input type="text"
+											name="Country" class="form-control"
+											value="{{userData.permenentAddress.[0].Country}}" placeholder="contry">
+									</div> --}}
+									<div class="col-md-6"><label class="labels">Mobile</label><input type="number"
+											name="Mobile" class="form-control" value=""></div>
+									<div class="col-md-6"><label class="labels">House/Street</label><input type="text"
+											name="House" class="form-control" value=""></div>
+									<div class="col-md-6"><label class="labels">Landmark</label><input type="text"
+											name="Landmark" class="form-control" value=""></div>
+									<div class="col-md-6"><label class="labels">Town</label><input type="text"
+											name="Town" class="form-control" value=""></div>
+									<div class="col-md-6"><label class="labels">Pin</label><input type="number"
+											name="Pin" class="form-control" value=""></div>
+									<button class="btn btn-primary" type="submit">save</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+				<!-- Accordion card -->
+
+				<!-- Accordion card -->
+
+				<!-- Accordion card -->
+
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="product-details">
+						<div class="head d-flex justify-content-center align-items-center bg-info p-3">
+							<h6>PRODUCTS</h6>
+
+						</div>
+						{{#each products}}
+
+						<div class="product-body">
+							<div class="d-flex justify-content-around border">
+								<div class="Image">
+									<p><strong>Image</strong></p>
+									<img style="width: 50px;height: 50px;"
+										src="/admin/product-Images/{{this.product.Image.[0]}}" alt="">
+
+								</div>
+								<div class="details">
+									<p><strong>Name</strong></p>
+									<p>{{this.product.Name}}</p>
+
+								</div>
+								<div class="details">
+									<p><strong>Price</strong></p>
+									<p id="singleAmount">{{this.product.Price}}</p>
+
+
+
+								</div>
+								<div class="details">
+									<p><strong>Quantity</strong></p>
+
+									<p>{{this.quantity}}</p>
+
+								</div>
+
+
+							</div>
+
+						</div>
+
+						{{/each}}
+
+					</div>
+					<div>
+						<div class="row">
+							<div class="col-12 ">
+								<div class="pt-3 ">
+									<div class="d-flex justify-content-center align-items-center bg-danger p-3">
+
+										<p><strong>Addresses</strong></p>
+									</div>
+								</div>
+								{{#each userData.Address}}
+
+
+								<div
+									style="background-color: rgb(177, 181, 185); border-radius: 7px;margin-top: 5px;padding: 5px">
+									<div>
+
+										<a href="/placeOrderAddress/{{this.AddressId}}">
+
+											<div class="d-flex justify-content-between align-items-center">
+												<div>
+													<p style="margin: 0px;"><strong>{{this.Name}}/
+															<span>{{this.Mobile}}</span></strong>{{#if this.value}}
+														<span
+															style="background-color: rgb(167, 145, 7);color: rgb(255, 255, 255); padding: 3px;border-radius: 5px;">Curent
+															Adress</span>{{/if}} </p>
+													<p><i><span>{{this.House}}/ </span><span>{{this.Place}}/
+															</span><span>{{this.Town}}/
+															</span><span>Pin:{{this.Pin}}</span></i>
+													</p>
+												</div>
+												{{!-- <div>
+
+													<a href="/editAddress/{{this.AddressId}}"> <button
+															class="btn btn-primary"><i class="fa fa-list-alt"
+																aria-hidden="true"></i></button></a>
+													<a href="/deleteAddress/{{this.AddressId}} "><button
+															class="btn btn-danger"><i class="fa fa-trash"
+																aria-hidden="true"></i></button></a>
+												</div> --}}
+											</div>
+										</a>
+
+										{{!-- <a href="/placeOrderAddress/{{this.AddressId}}">Use This Address</a> --}}
+									</div>
+
+
+								</div>
+								{{/each}}
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="row">
+						<div class="col-12">
+							<div class="checkout-accordion-wrap">
+								<div class="accordion" id="accordionExample">
+									<div class="card single-accordion">
+										<div class="card-header" id="headingOne">
+											<h5 class="mb-0">
+												<button class="btn btn-link" type="button" data-toggle="collapse"
+													data-target="#collapseOne" aria-expanded="true"
+													aria-controls="collapseOne">
+													Billing Address
+												</button>
+											</h5>
+										</div>
+										{{!-- {{#if userAddress.[0].Address}} --}}
+										<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+											data-parent="#accordionExample">
+											<div class="card-body">
+												<div class="billing-address-form">
+													<form action="/deleveryAddress/{{user._id}}" id="placeorder-form">
+														<input type="text" name="userId" value="{{user._id}}" hidden>
+														<p><input name="Name" type="text" placeholder="Name"
+																value="{{userAddress.[0].Address.Name}}" required></p>
+														<p><input type="text" placeholder="Place" name="Place"
+																value="{{userAddress.[0].Address.Place}}" required></p>
+														<p><input type="number" placeholder="Mobile" name="Mobile"
+																value="{{userAddress.[0].Address.Mobile}}" required></p>
+														<p><input type="text" placeholder="House" name="House"
+																value="{{userAddress.[0].Address.House}}" required></p>
+														<p><input type="text" placeholder="Landmark" name="Landmark"
+																value="{{userAddress.[0].Address.Landmark}}" required>
+														</p>
+														<p><input type="text" name="Town" id=""
+																value="{{userAddress.[0].Address.Town}}" required></p>
+														<p><input type="number" name="Pin" id="" placeholder="Pin"
+																value="{{userAddress.[0].Address.Pin}}" required></p>
+
+
+
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+
+
+
+								</div>
+
+							</div>
+						</div>
+
+
+					</div>
+
+
+				</div>
+
+
+
+				<div class="col-lg-4">
+
+					<div class="pt-3">
+						<div class="head d-flex justify-content-center align-items-center bg-warning p-3">
+							<h6>Details</h6>
+
+						</div>
+						<div class="">
+							<div class="p-3" style="background-color: rgb(233, 229, 229);">
+								<div class="d-flex justify-content-around">
+
+									<div>
+										<p>Sub Total</p>
+									</div>
+									<div>
+										{{!-- <p>{{total}}</p> --}}
+										<input value="{{total}}" type="text" id="fullTotal" name="LastPrice"
+										style="outline:none; border: none; background-color:#e9e5e4;">
+									</div>
+								</div>
+								<hr>
+								<div class="d-flex justify-content-around">
+									<p>Coupon Discount</p>
+									<p id="couponMsg"></p>
+									
+
+								</div>
+								<hr>
+								{{!-- <div class="d-flex justify-content-around">
+									<p>Total</p>
+									{{!-- <input id="fullTotal" type="text" name="descountPrice"> --}}
+									<input type="text" id="fullTota" name="lastPrice"
+										style="outline:none; border: none; background-color:#e9e5e4;">
+									{{!-- <p id="fullTotal">:</p> --}}
+
+								</div> --}}
+
+							</div>
+						</div>
+
+						<div class="mt-3">
+							<div class="head d-flex justify-content-center align-items-center bg-warning p-3">
+								<h6>Payment</h6>
+
+							</div>
+							<div>
+								<div class="p-3" style="background-color: rgb(233, 229, 229);">
+									<div>
+										<input type="radio" name="payment" value="COD" required>
+										<label for="">COD</label>
+									</div>
+									<div>
+										<input type="radio" name="payment" value="ONLINE " required>
+										<label for="">Online Payment</label>
+									</div>
+
+
+
+
+
+								</div>
+								<a href="">
+									<div class="head d-flex justify-content-center align-items-center bg-success p-3">
+										<button onclick="placeorder()" type="submit"
+											style="background: none; border: none;"> Buy</button>
+
+									</div>
+								</a>
+								</form>
+							</div>
+
+						</div>
+						{{!-- coupen --}}
+						<div class="coupon-section" style="border: 1px solid; padding: 10px;">
+							<h3>Apply Coupon</h3>
+							<p id="couponError"></p>
+							<div class="coupon-form-wrap">
+
+								<p class="Coupen-text"><input id="couponcode" type="text" placeholder="Coupon"
+										name="userCoupon">
+								</p>
+
+								<button type="button" onclick="coupon()" class="btn btn-primary">Submit Coupon</button>
+
+							</div>
+							<div id="coupon" class="notification bg-success rounded mt-2 text-center"
+								onclick="openCoupon()"><strong>My Coupons ▽</strong></div>
+							<div id="couponBox" style="display: none;">
+								{{#each coupon}}
+								<p class="bg-dark text-white d-flex align-items-center justify-content-center m-0">
+									{{this.couponCode}}</p>
+								{{/each}}
+
+
+
+							</div>
+						</div>
+						{{!-- coupen --}}
+
+
+
+					</div>
+
+					{{!-- <div class="order-details-wrap">
+						<table class="order-details">
+							<thead>
+								<tr>
+									<th>Your order Details</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody class="order-details-body">
+								<tr>
+									<td><strong>Product</strong></td>
+									<td><strong>Total</strong></td>
+								</tr>
+
+							</tbody>
+							<tbody class="checkout-details">
+								<tr>
+									<td>Subtotal</td>
+									<td>$190</td>
+								</tr>
+								<tr>
+									<td>Shipping</td>
+									<td>$50</td>
+								</tr>
+								<tr>
+									<td>Total</td>
+									<td>{{total}}</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div> --}}
+
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end check out section -->
+
+	<!-- logo carousel -->
+	<!-- footer -->
+<div class="footer-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box about-widget">
+					<h2 class="widget-title">About us</h2>
+					<p>Success is an Indian brand of student stationery products. ITC Limited (formerly Indian Tobacco Company) launched its Success brand in 2003 with the notebooks category. Subsequently, Success added sketch books, Diarys, and Office Notepad to its portfolio. It uses eco-friendly and elemental chlorine-free paper..</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li>7/2 kinfra tecno park.</li>
+						<li>uvaiskolambalam@gmail.com</li>
+						<li>9745741171</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box pages">
+					<h2 class="widget-title">Pages</h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/shop?page=1">Shop</a></li>
+						
+						
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box subscribe">
+					<h2 class="widget-title">Subscribe</h2>
+					<p>Subscribe to our mailing list to get the latest updates.</p>
+					{{!-- <form action="index.html">
+						<input type="email" placeholder="Email">
+						<button type="submit"><i class="fas fa-paper-plane"></i></button>
+					</form> --}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<p>Copyrights &copy; 2022 - <a href="https://mhduys.github.io/personal-website/">Muhammed Uvais</a>, All Rights
+					Reserved.<br>
+					Distributed By - <a href="https://themewagon.com/">eyeblue</a>
+				</p>
+			</div>
+			<div class="col-lg-6 text-right col-md-12">
+				<div class="social-icons">
+					<ul>
+						<li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="https://wa.me/+919745741171" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- end copyright -->
+
+	<!-- jquery -->
+
+
+</body>
+
+</html>
+<script>
+	let myCoupon = document.getElementById('couponBox')
+	let isShow = false
+	function openCoupon() {
+		if (isShow) {
+			myCoupon.style.display = 'none'
+			isShow = false
+		} else {
+			myCoupon.style.display = 'block'
+			isShow = true
+
+		}
+	}
+</script>
+
+<script>
+	function coupon() {
+		let userCupon = document.getElementById('couponcode').value
+		let subtotal = '{{total}}'
+		subtotal = parseInt(subtotal)
+		console.log(subtotal)
+		$.ajax({
+			url: '/applayCoupon',
+			method: 'post',
+			data: { userCupon },
+			success: (response) => {
+				if (response.Error) {
+					//alert('alredy used')
+					document.getElementById('couponError').innerHTML = 'invalid'
+				} else if (response.DateError) {
+					document.getElementById('couponError').innerHTML = 'coupon expired'
+
+
+				} else {
+					//alert("coupon")
+					response = parseInt(response)
+					console.log(response, "response")
+					document.getElementById('couponMsg').innerHTML = response
+					document.getElementById('fullTotal').value = subtotal - response
+
+				}
+
+			}
+
+		})
+
+	}
+
+</script>
+
+<script>
+	function placeorder() {
+
+		$("#placeorder-form").submit((e) => {
+			e.preventDefault()
+			$.ajax({
+				url: '/place-order',
+				method: 'post',
+				data: $("#placeorder-form").serialize(),
+				success: (response) => {
+
+					if (response.codSucces) {
+						location.href = '/order-success'
+					} else {
+						razorpayPayment(response)
+						
+
+
+					}
+				}
+			})
+		})
+	}
+	function razorpayPayment(order) {
+		var options = {
+			"key": "rzp_test_qZEK5Z2duMDy1Y", // Enter the Key ID generated from the Dashboard
+			"amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+			"currency": "INR",
+			"name": "Success",
+			"description": "Test Transaction",
+			"image": "https://example.com/your_logo",
+			"order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+			"handler": function (response) {
+				//alert(response.razorpay_payment_id);
+				//alert(response.razorpay_order_id);
+				//alert(response.razorpay_signature)
+
+				verifyPayment(response, order)
+			},
+			"prefill": {
+				"name": "Gaurav Kumar",
+				"email": "gaurav.kumar@example.com",
+				"contact": "9999999999"
+			},
+			"notes": {
+				"address": "Razorpay Corporate Office"
+			},
+			"theme": {
+				"color": "#3399cc"
+			}
+		};
+		var rzp1 = new Razorpay(options);
+		rzp1.open();
+	}
+	function verifyPayment(payment, order) {
+		$.ajax({
+			url: '/verify-payment',
+			data: {
+				payment,
+				order
+			},
+			method: 'post',
+			success: (response) => {
+				console.log(response, "resoponse")
+				if (response.status) {
+					alert('payment Success')
+					location.href='/orders'
+				} else {
+					alert("payment failed")
+				}
+			}
+		})
+	}
+</script>

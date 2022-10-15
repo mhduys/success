@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- <title>Document</title> --}}
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type='number'] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    {{>user-header}}
+    <div class="breadcrumb-section breadcrumb-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="breadcrumb-text">
+                        <p>We sale premium books</p>
+                        <h1>User Addresses</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+
+        <div class="container pt-3">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6" style="border: 2px;background-color:#374b56; border-radius: 8px;">
+                    {{!-- <div class="col-md-12 border-right"> --}}
+                        <div class="p-3 py-5 font-weight-bold">
+
+                            <a href="/userProfile"><button class="btn btn-primary profile-button" type="submit"><i
+                                        class="fa fa-user" aria-hidden="true"></i> Profile</button></a>
+                            <a href="/address"><button class="btn btn-primary profile-button" type="submit"><i
+                                        class="fa fa-address-card" aria-hidden="true"></i> Address</button></a>
+                            
+                            <div class="row mt-5 d-flex justify-content-center">
+
+                                <div class="col-md-12 ">
+
+                                    
+                                    <!--Accordion wrapper-->
+                                    <div class="accordion md-accordion" id="accordionEx1" role="tablist"
+                                        aria-multiselectable="true">
+
+                                        <!-- Accordion card -->
+                                        <div class="card">
+
+                                            <!-- Card header -->
+                                            <div class="card-header" role="tab" id="headingTwo1">
+                                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1"
+                                                    href="#collapseTwo1" aria-expanded="false"
+                                                    aria-controls="collapseTwo1">
+                                                    <h5 class="mb-0 text-info">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>Add More
+                                                    </h5>
+                                                </a>
+                                            </div>
+
+                                            <!-- Card body -->
+                                            <div id="collapseTwo1" class="collapse" role="tabpanel"
+                                                aria-labelledby="headingTwo1" data-parent="#accordionEx1">
+                                                <div class="card-body">
+                                                    <form action="/add-address" method="post">
+                                                        <div class="row mt-5 d-flex justify-content-center text-info border rounded"
+                                                            id="address">
+
+
+                                                            <div class="col-md-12 "><label
+                                                                    class="labels">Name</label><input type="text"
+                                                                    name="Name" class="form-control " value=""></div>
+                                                            <div class="col-md-6 "><label
+                                                                    class="labels">Place</label><input type="text"
+                                                                    name="Place" class="form-control " value=""></div>
+
+                                                            {{!-- <div class="col-md-6"><label
+                                                                    class="labels">Country</label><input type="text"
+                                                                    name="Country" class="form-control"
+                                                                    value="{{userData.permenentAddress.[0].Country}}"
+                                                                    placeholder="contry">
+                                                            </div> --}}
+                                                            <div class="col-md-6"><label
+                                                                    class="labels">Mobile</label><input type="number"
+                                                                    name="Mobile" class="form-control" value=""></div>
+                                                            <div class="col-md-6"><label
+                                                                    class="labels">House/Street</label><input
+                                                                    type="text" name="House" class="form-control"
+                                                                    value=""></div>
+                                                            <div class="col-md-6"><label
+                                                                    class="labels">Landmark</label><input type="text"
+                                                                    name="Landmark" class="form-control" value=""></div>
+                                                            <div class="col-md-6"><label
+                                                                    class="labels">Town</label><input type="text"
+                                                                    name="Town" class="form-control" value=""></div>
+                                                            <div class="col-md-6"><label
+                                                                    class="labels">Pin</label><input type="number"
+                                                                    name="Pin" class="form-control" value=""></div>
+                                                            <button class="btn btn-primary" type="submit">save</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- Accordion card -->
+
+                                        <!-- Accordion card -->
+
+                                        <!-- Accordion card -->
+
+                                    </div>
+                                  
+                                </div>
+                            </div>
+
+                            <form action="/add-address" method="post">
+                                <div class="d-none" id="address">
+
+
+                                    <div class="col-md-12 "><label class="labels">Name</label><input type="text"
+                                            name="Name" class="form-control " value=""></div>
+                                    <div class="col-md-6 "><label class="labels">Place</label><input type="text"
+                                            name="Place" class="form-control " value=""></div>
+
+                                    {{!-- <div class="col-md-6"><label class="labels">Country</label><input type="text"
+                                            name="Country" class="form-control"
+                                            value="{{userData.permenentAddress.[0].Country}}" placeholder="contry">
+                                    </div> --}}
+                                    <div class="col-md-6"><label class="labels">Mobile</label><input type="number"
+                                            name="Mobile" class="form-control" value=""></div>
+                                    <div class="col-md-6"><label class="labels">House/Street</label><input type="text"
+                                            name="House" class="form-control" value=""></div>
+                                    <div class="col-md-6"><label class="labels">Landmark</label><input type="text"
+                                            name="Landmark" class="form-control" value=""></div>
+                                    <div class="col-md-6"><label class="labels">Town</label><input type="text"
+                                            name="Town" class="form-control" value=""></div>
+                                    <div class="col-md-6"><label class="labels">Pin</label><input type="number"
+                                            name="Pin" class="form-control" value=""></div>
+                                    <button class="btn btn-primary" type="submit">save</button>
+                                </div>
+                            </form>
+
+                            {{#each userData.Address}}
+
+                            <div style="background-color: aliceblue; border-radius: 7px;margin-top: 5px;padding: 5px">
+                                <div>
+                                    <a href="/changeCurruntAddress/{{this.AddressId}}">
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <p style="margin: 0px;"><strong>{{this.Name}}/
+                                                <span>{{this.Mobile}}</span></strong>{{#if this.value}} <span
+                                                style="background-color: rgb(167, 145, 7);color: rgb(255, 255, 255); padding: 3px;border-radius: 5px;">Curent
+                                                Adress</span>{{/if}} </p>
+                                        <p><i><span>{{this.House}}/ </span><span>{{this.Place}}/
+                                                </span><span>{{this.Town}}/ </span><span>Pin:{{this.Pin}}</span></i></p>
+                                    </div>
+                                    <div>
+                                       
+                                        <a href="/editAddress/{{this.AddressId}}"> <button class="btn btn-primary"><i
+                                                    class="fa fa-list-alt" aria-hidden="true"></i></button></a>
+                                        <a href="/deleteAddress/{{this.AddressId}} "><button class="btn btn-danger"><i
+                                                    class="fa fa-trash" aria-hidden="true"></i></button></a>
+                                    </div>
+                                </div>
+                                </a>
+                                </div>
+
+
+                            </div>
+                            {{/each}}
+                        </div>
+
+
+
+                        
+                       
+
+
+                    </div>
+                    
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="pt-3">
+        <!-- footer -->
+<div class="footer-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box about-widget">
+					<h2 class="widget-title">About us</h2>
+					<p>Success is an Indian brand of student stationery products. ITC Limited (formerly Indian Tobacco Company) launched its Success brand in 2003 with the notebooks category. Subsequently, Success added sketch books, Diarys, and Office Notepad to its portfolio. It uses eco-friendly and elemental chlorine-free paper..</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li>7/2 kinfra tecno park.</li>
+						<li>uvaiskolambalam@gmail.com</li>
+						<li>9745741171</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box pages">
+					<h2 class="widget-title">Pages</h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/shop?page=1">Shop</a></li>
+						
+						
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box subscribe">
+					<h2 class="widget-title">Subscribe</h2>
+					<p>Subscribe to our mailing list to get the latest updates.</p>
+					{{!-- <form action="index.html">
+						<input type="email" placeholder="Email">
+						<button type="submit"><i class="fas fa-paper-plane"></i></button>
+					</form> --}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<p>Copyrights &copy; 2022 - <a href="https://mhduys.github.io/personal-website/">Muhammed Uvais</a>, All Rights
+					Reserved.<br>
+					Distributed By - <a href="https://themewagon.com/">eyeblue</a>
+				</p>
+			</div>
+			<div class="col-lg-6 text-right col-md-12">
+				<div class="social-icons">
+					<ul>
+						<li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="https://wa.me/+919745741171" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+    </section>
+</body>
+
+</html>
+<script>
+    let address = document.getElementById('address')
+    let isShow = false
+
+    function addres() {
+        if (isShow) {
+            address.className = " d-none "
+            console.log(address)
+            isShow = false
+        } else {
+            address.className = " row mt-5 d-flex justify-content-center text-info border rounded"
+            isShow = true
+        }
+
+    }
+
+</script>

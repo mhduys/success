@@ -1,0 +1,525 @@
+<!-- end header -->
+{{>user-header}}
+<!-- search area -->
+<div class="search-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<span class="close-btn"><i class="fas fa-window-close"></i></span>
+				<div class="search-bar">
+					<div class="search-bar-tablecell">
+						<h3>Search For:</h3>
+						<input type="text" placeholder="Keywords">
+						<button type="submit">Search <i class="fas fa-search"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end search area -->
+
+<!-- hero area -->
+<div class="hero-area hero-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="hero-text">
+					<div class="hero-text-tablecell">
+						<p class="subtitle">write & cool</p>
+						<h1>Premium Books</h1>
+						<div class="hero-btns">
+							<a href="/shop?page=1" class="boxed-btn">Book Collection</a>
+							<a href="https://wa.me/+919745741171" class="bordered-btn">Contact Us</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end hero area -->
+
+<!-- features list section -->
+<div class="list-section pt-80 pb-80">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+				<div class="list-box d-flex align-items-center">
+					<div class="list-icon">
+						<i class="fas fa-shipping-fast"></i>
+					</div>
+					<div class="content">
+						<h3>Free Shipping</h3>
+						<p>When order over $75</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+				<div class="list-box d-flex align-items-center">
+					<div class="list-icon">
+						<i class="fas fa-phone-volume"></i>
+					</div>
+					<div class="content">
+						<h3>24/7 Support</h3>
+						<p>Get support all day</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="list-box d-flex justify-content-start align-items-center">
+					<div class="list-icon">
+						<i class="fas fa-sync"></i>
+					</div>
+					<div class="content">
+						<h3>Refund</h3>
+						<p>Get refund within 3 days!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="product-section mt-150 mb-150">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="section-title">
+					<h3><span class="orange-text">Our</span> Products</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet
+						beatae optio.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			{{#each productToHome}}
+			<div class="col-md-3 col text-center">
+
+				{{!-- ============================================ --}}
+				<div class="card single-product-item rounded">
+					<div style="position: absolute;">
+						<button onclick="addToWishlist('{{this._id}}')" style="border: none;background:none ;"><i
+								class="fa fa-heart befor" aria-hidden="true" id="{{this._id}}Heart"></i></button>
+					</div>
+					<a href="/viewSingleProduct/{{this._id}}">
+						<div class="d-flex align-itmes-center justify-content-center " style="height: 180px;">
+
+							<img style="width: 150px; padding: 6px; overflow:visible;"
+								src="/admin/product-Images/{{this.Image.[0]}}" class="card-img-top"
+								alt="Fissure in Sandstone" />
+						</div>
+					</a>
+					<div class="card-body ">
+						<h6 class="text-info">{{this.Description}}</h6>
+
+
+						<div class=" d-flex justify-content-start">
+							<h6>{{this.Name}}</h6>
+						</div>
+						<div class=" d-flex justify-content-start">
+							<span class="badge badge-success">{{this.Star}} ★</span>
+						</div>
+
+						<div class=" d-flex justify-content-start">
+							<p><strong>₹:{{this.Price}}</strong> <span class="text-secondary"><del>₹:{{this.Discount}}</del></span>
+							</p>
+						</div>
+						<div class=" d-flex justify-content-start">
+							<span class="text-success">{{this.Offer}}% off</span>
+						</div>
+
+						<div class=" d-flex justify-content-start">
+							<p>Free Delevery</p>
+
+						</div>
+
+
+
+
+						{{!-- <a href="#!" class="btn btn-primary"> Button</a> --}}
+					</div>
+					<div class="d-flex justify-content-center p-3 ">
+						<div class="">
+							<button class="btn btn-success" onclick="addToCart('{{this._id}}')"><i
+									class="fas fa-shopping-cart"></i> cart</button>
+						</div>
+						<div class="ml-2">
+							<button class="btn btn-primary" onclick="addToWishlist('{{this._id}}')"><i
+									class="fa fa-heart befor" aria-hidden="true" id="wishlist"></i> wishlist</button>
+						</div>
+					</div>
+
+				</div>
+				{{!-- =============================== --}}
+
+			</div>
+			{{/each}}
+
+
+		</div>
+		<div class="d-flex justify-content-center aign-items-center">
+
+			<a href="/shop?page=1"><button class="btn btn-primary">View more</button></a>
+		</div>
+	</div>
+</div>
+<!-- end product section -->
+
+<!-- cart banner section -->
+{{!-- <section class="cart-banner pt-100 pb-100">
+	<div class="container">
+		<div class="row clearfix">
+			<!--Image Column-->
+			<div class="image-column col-lg-6">
+				<div class="image">
+					<div class="price-box">
+						<div class="inner-price">
+							<span class="price">
+								<strong>30%</strong> <br> off per kg
+							</span>
+						</div>
+					</div>
+					<img src="user/assets/img/a.jpg" alt="">
+				</div>
+			</div>
+			<!--Content Column-->
+			<div class="content-column col-lg-6">
+				<h3><span class="orange-text">Deal</span> of the month</h3>
+				<h4>Hikan Strwaberry</h4>
+				<div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique!
+					Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem
+					accusant</div>
+				<!--Countdown Timer-->
+				<div class="time-counter">
+					<div class="time-countdown clearfix" data-countdown="2020/2/01">
+						<div class="counter-column">
+							<div class="inner"><span class="count">00</span>Days</div>
+						</div>
+						<div class="counter-column">
+							<div class="inner"><span class="count">00</span>Hours</div>
+						</div>
+						<div class="counter-column">
+							<div class="inner"><span class="count">00</span>Mins</div>
+						</div>
+						<div class="counter-column">
+							<div class="inner"><span class="count">00</span>Secs</div>
+						</div>
+					</div>
+				</div>
+				<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+			</div>
+		</div>
+	</div>
+</section> --}}
+<!-- end cart banner section -->
+
+<!-- testimonail-section -->
+<div class="testimonail-section mt-150 mb-150">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 offset-lg-1 text-center">
+				<div class="testimonial-sliders">
+					<div class="single-testimonial-slider">
+						<div class="client-avater">
+							<img src="user/assets/img/avaters/avatar1.png" alt="">
+						</div>
+						<div class="client-meta">
+							<h3>Saira Hakim <span>Local shop owner</span></h3>
+							<p class="testimonial-body">
+								" Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto beatae
+								vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus
+								error sit voluptatem accusantium "
+							</p>
+							<div class="last-icon">
+								<i class="fas fa-quote-right"></i>
+							</div>
+						</div>
+					</div>
+					<div class="single-testimonial-slider">
+						<div class="client-avater">
+							<img src="user/assets/img/avaters/avatar2.png" alt="">
+						</div>
+						<div class="client-meta">
+							<h3>David Niph <span>Local shop owner</span></h3>
+							<p class="testimonial-body">
+								" Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto beatae
+								vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus
+								error sit voluptatem accusantium "
+							</p>
+							<div class="last-icon">
+								<i class="fas fa-quote-right"></i>
+							</div>
+						</div>
+					</div>
+					<div class="single-testimonial-slider">
+						<div class="client-avater">
+							<img src="user/assets/img/avaters/avatar3.png" alt="">
+						</div>
+						<div class="client-meta">
+							<h3>Jacob Sikim <span>Local shop owner</span></h3>
+							<p class="testimonial-body">
+								" Sed ut perspiciatis unde omnis iste natus error veritatis et quasi architecto beatae
+								vitae dict eaque ipsa quae ab illo inventore Sed ut perspiciatis unde omnis iste natus
+								error sit voluptatem accusantium "
+							</p>
+							<div class="last-icon">
+								<i class="fas fa-quote-right"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end testimonail-section -->
+
+<!-- advertisement section -->
+<div class="abt-section mb-150">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<div class="abt-bg">
+					<a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i
+							class="fas fa-play"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-12">
+				<div class="abt-text">
+					<p class="top-sub">Since Year 2018</p>
+					<h2>We are <span class="orange-text">Success</span></h2>
+					<p>Quality has been our priority since 2000. Naturally, a company that has been around for more than
+						20 years ago manufactures its products to the highest quality standards. Without this strong
+						focus on high quality paper, such a long company tradition would not have had a firm foundation.
+					</p>
+					<p>Our current leading position in the international market is obviously due to a commitment to
+						deliver top quality products “Made in Germany”.</p>
+					<a href="/about" class="boxed-btn mt-4">know more</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end advertisement section -->
+
+<!-- shop banner -->
+{{!-- <section class="shop-banner">
+	<div class="container">
+		<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
+		<div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
+		<a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
+	</div>
+</section> --}}
+<!-- end shop banner -->
+
+<!-- latest news -->
+{{!-- <div class="latest-news pt-150 pb-150">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="section-title">
+					<h3><span class="orange-text">Our</span> News</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet
+						beatae optio.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="single-latest-news">
+					<a href="single-news.html">
+						<div class="latest-news-bg news-bg-1"></div>
+					</a>
+					<div class="news-text-box">
+						<h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
+						<p class="blog-meta">
+							<span class="author"><i class="fas fa-user"></i> Admin</span>
+							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+						</p>
+						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
+							Praesent vitae mattis nunc, egestas viverra eros.</p>
+						<a href="single-news.html" class="read-more-btn">read more <i
+								class="fas fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="single-latest-news">
+					<a href="single-news.html">
+						<div class="latest-news-bg news-bg-2"></div>
+					</a>
+					<div class="news-text-box">
+						<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
+						<p class="blog-meta">
+							<span class="author"><i class="fas fa-user"></i> Admin</span>
+							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+						</p>
+						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
+							Praesent vitae mattis nunc, egestas viverra eros.</p>
+						<a href="single-news.html" class="read-more-btn">read more <i
+								class="fas fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+				<div class="single-latest-news">
+					<a href="single-news.html">
+						<div class="latest-news-bg news-bg-3"></div>
+					</a>
+					<div class="news-text-box">
+						<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
+						<p class="blog-meta">
+							<span class="author"><i class="fas fa-user"></i> Admin</span>
+							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+						</p>
+						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
+							Praesent vitae mattis nunc, egestas viverra eros.</p>
+						<a href="single-news.html" class="read-more-btn">read more <i
+								class="fas fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<a href="news.html" class="boxed-btn">More News</a>
+			</div>
+		</div>
+	</div>
+</div> --}}
+<!-- end latest news -->
+
+<!-- end logo carousel -->
+
+<!-- footer -->
+<div class="footer-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box about-widget">
+					<h2 class="widget-title">About us</h2>
+					<p>Success is an Indian brand of student stationery products. ITC Limited (formerly Indian Tobacco Company) launched its Success brand in 2003 with the notebooks category. Subsequently, Success added sketch books, Diarys, and Office Notepad to its portfolio. It uses eco-friendly and elemental chlorine-free paper..</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li>7/2 kinfra tecno park.</li>
+						<li>uvaiskolambalam@gmail.com</li>
+						<li>9745741171</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box pages">
+					<h2 class="widget-title">Pages</h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">About</a></li>
+						<li><a href="/shop?page=1">Shop</a></li>
+						
+						
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box subscribe">
+					<h2 class="widget-title">Subscribe</h2>
+					<p>Subscribe to our mailing list to get the latest updates.</p>
+					{{!-- <form action="index.html">
+						<input type="email" placeholder="Email">
+						<button type="submit"><i class="fas fa-paper-plane"></i></button>
+					</form> --}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<p>Copyrights &copy; 2022 - <a href="https://mhduys.github.io/personal-website/">Muhammed Uvais</a>, All Rights
+					Reserved.<br>
+					Distributed By - <a href="https://themewagon.com/">eyeblue</a>
+				</p>
+			</div>
+			<div class="col-lg-6 text-right col-md-12">
+				<div class="social-icons">
+					<ul>
+						<li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="https://twitter.com/home" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="https://wa.me/+919745741171" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	function addToCart(proId) {
+		$.ajax({
+			url: '/add-to-cart/' + proId,
+			method: 'get',
+			success: (response) => {
+				if (response.status) {
+					let count = $('#cart-count').html()
+					count = parseInt(count) + 1
+					$('#cart-count').html(count)
+					//alert("item added to cart")
+				} else {
+					location.href = "/login"
+				}
+
+			}
+		})
+
+	}
+
+
+	function addToWishlist(proId) {
+		$.ajax({
+			url: 'add-to-wishlist/' + proId,
+			method: 'get',
+			success: (response) => {
+				if (response) {
+					if (response.removeproductFromWishlist) {
+
+						document.getElementById(proId + "Heart").style.color = "blue"
+						//$(proId+"Heart").css("color","white")
+
+
+
+					} else if (response.addToWishlist) {
+
+						document.getElementById(proId + "Heart").style.color = "red"
+
+						//$(proId+"Heart").css("color","red")
+
+					} else if (response.notLogin) {
+						alert("you have not add this item befor login, Pleas login")
+					}
+
+
+
+
+				}
+			}
+		})
+	}
+</script>
